@@ -32,8 +32,8 @@ export default function ButtonHolder() {
     
     return (
       <div className="bg-white p-4 flex-grow rounded shadow-lg flex justify-center">
-        <button onClick={handleToggle} class="bg-blue-500 hover:bg-blue-700 text-center text-white font-bold py-2 px-4 rounded h-1/4">
-            {'True' === newItem.isFishing ? "ON" : "OFF"}
+        <button onClick={handleToggle} class="bg-teal-500 hover:bg-teal-600 pb-8 text-center text-white font-bold py-2 px-4 rounded h-1/4 w-40">
+            {'True' === newItem.isFishing ? "Stop Fishing" : "Start Fishing"}
         </button>
       </div>
     );

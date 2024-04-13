@@ -1,26 +1,26 @@
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import { useState, useEffect } from 'react';
 
 function GraphHolder() {
-    const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * (100-0+1)));
+//     const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * (100-0+1)));
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRandomNumber(Math.floor(Math.random() * (100-0+1)));
-    }, 1000); // Change the number here to adjust the time interval (1000 ms = 1 second)
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setRandomNumber(Math.floor(Math.random() * (100-0+1)));
+//     }, 1000); // Change the number here to adjust the time interval (1000 ms = 1 second)
 
-    return () => clearInterval(interval); // This is to clear the interval when the component unmounts
-  }, []);
+//     return () => clearInterval(interval); // This is to clear the interval when the component unmounts
+//   }, []);
 
   const data = {
-    labels: ['AH', 'AH', 'AH', 'AH', 'AH', 'AH'],
+    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     datasets: [
       {
-        label: 'Magic Rod Data',
-        backgroundColor: 'rgba(255,192,192,0.4)',
+        label: 'Fish Caught',
+        backgroundColor: 'rgb(12,148,136)',
         borderColor: 'rgba(255,192,192,1)',
-        data: [randomNumber, 59, randomNumber, 81, randomNumber, randomNumber, 40],
+        data: [65, 59, 80, 81, 56, 55],
       },
     ],
   };
@@ -40,7 +40,7 @@ function GraphHolder() {
 
   return (
     <div className="">
-        <Line className="h-full w-full" data={data} options={options} />
+        <Bar className="bg-gray-100 h-full w-full" data={data} options={options} />
     </div>
   )
 }
