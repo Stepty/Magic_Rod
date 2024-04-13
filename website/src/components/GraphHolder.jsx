@@ -7,7 +7,7 @@ class GraphHolder extends React.Component {
             <div className="graph-holder">
                 <h2>Magic Rod</h2>
                 <div id="graph">
-                    {/* Your graph component goes here */}
+                    <canvas id="chart"></canvas>
                 </div>
             </div>
         );
