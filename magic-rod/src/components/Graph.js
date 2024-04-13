@@ -14,7 +14,7 @@ function GraphHolder() {
   }, []);
 
   const data = {
-    labels: ['Kill', 'Me', 'RIght', 'Fucking', 'NOw', 'Please'],
+    labels: ['AH', 'AH', 'AH', 'AH', 'AH', 'AH'],
     datasets: [
       {
         label: 'Magic Rod Data',

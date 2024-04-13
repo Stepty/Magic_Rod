@@ -2,23 +2,20 @@ import React from "react";
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from "@/components/firebase";
 import { useState } from "react";
+import {ref, set} from "firebase/database";
 
 export default function ButtonHolder() {
-  const [newItem, setNewItem] = useState({flag: '0'});
+  const [newItem, setNewItem] = useState({isFishing: 'False'});
 
   // add item to db
-  const addItem = async () => {
-
-    if (newItem.flag === '0') {
-      await addDoc(collection(db, "flag"), {
-         flag: '1'
-      });
+  const addItem = () => {
+    try {
+        set(ref(db), {
+            isFishing: 'True' === newItem.isFishing ? 'False' : 'True',
+        });
+    } catch (error) {
+        console.log("Error adding: ", error)
     }
-    else {
-      await addDoc(collection(db, "flag"), {
-        flag: '0'
-     });
-    } 
   }
   // read item from db
   // useEffect(() => {
@@ -29,14 +26,14 @@ export default function ButtonHolder() {
     
     const handleToggle = () => {
         addItem();
-        setNewItem('1' === newItem.flag ? {flag: '0'} : {flag: '1'})
+        setNewItem('True' === newItem.isFishing ? {isFishing: 'False'} : {isFishing: 'True'})
     };
 
     
     return (
       <div className="bg-white p-4 flex-grow rounded shadow-lg flex justify-center">
         <button onClick={handleToggle} class="bg-blue-500 hover:bg-blue-700 text-center text-white font-bold py-2 px-4 rounded h-1/4">
-            {'1' === newItem.flag ? "ON" : "OFF"}
+            {'True' === newItem.isFishing ? "ON" : "OFF"}
         </button>
       </div>
     );
